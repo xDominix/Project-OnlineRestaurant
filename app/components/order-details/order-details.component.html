@@ -1,0 +1,20 @@
+<div class="box">
+    <h1 id="l">YOUR ORDER</h1>
+
+    <div id="r"></div>
+
+    <div id="l"><b>TOTAL ITEMS:</b> {{totalNumOfItems}}</div>
+    <div id="l"><b>TOTAL PRICE:</b> {{totalItemPrice}}$</div>
+    <div id="l" *ngIf="totalNumOfItems!=0">
+        <div><b>PRODUCTS: </b></div>
+        <div *ngFor="let str of getArray">- {{str}}</div>
+    </div>
+
+    <div id="r"></div>
+
+    <div  id="l" *ngIf="totalNumOfItems!=0">
+        <div id="link" (click)="orderNow()"><b>ORDER NOW</b></div>
+    </div>
+
+    <div id="r"></div>
+</div>

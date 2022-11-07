@@ -1,0 +1,27 @@
+#container
+{
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    padding: 10px;
+    background-color: #77ffb4e3;
+    border-radius: 10px;
+}
+
+form
+{
+    display: flex;
+    flex-direction: column;
+    padding:30px;
+}
+
+span
+{
+    color:red;
+}

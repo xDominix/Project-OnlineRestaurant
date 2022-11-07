@@ -1,0 +1,28 @@
+<div class="rowBox">
+
+    <div id="leftBar">
+        <app-shoppingcartinfo [orderItems]="orderItems" [actualDishList] = "dishList" ></app-shoppingcartinfo>
+        <app-filters (onSetRegion)="setRegionFilter($event)" (onSetCategory)="setCategoryFilter($event)" (onSetMinPrice)="setMinPriceFilter($event)" (onSetMaxPrice)="setMaxPriceFilter($event)" (onSetRating)="setRatingFilter($event)" ></app-filters>
+        <div class="options" *ngIf="role=='admin'||role=='menager'">
+            <h1 >MENAGE DISHES</h1>
+            <button (click)="setAddDeleteDish()"><b>ADD/DELETE DISH</b></button>
+            <button (click)="setEditDish()"><b>EDIT DISH</b></button>
+        </div>
+    </div>
+    
+    <div id="mainBar" *ngIf="openInfoAbout==undefined">
+        <div id="dishes-container">
+            
+    
+            <app-dish [isAuthenticated]="isAuthenticated" (openInfoClick)="openInfoAbout=$event" (sendToShoppingCart)="setShoppingCart($event)" *ngFor="let dish of dishListOnPage;index as i" [focus]="idParam==dish.id" [editMode]="editDishMode" [deleteMode]="addDishMode" [dish]="dish" [amount]="getDishAmount(dish.id)" [setRed]="dish.price==maxDishPrice" [setGreen]="dish.price==minDishPrice"></app-dish>
+            
+            <div id="addDishItem" *ngIf="addDishMode">
+                <button id="addDishButton" (click)="showForm()"><b>+</b></button>
+            </div>
+        </div>
+        
+        <app-pagination-bar [numOfItems]="dishListFiltered.length" (onPageChange)="sliceParams=$event"></app-pagination-bar>
+    </div>
+    
+    <app-dish-info (closeInfoClick)="openInfoAbout=undefined" id="info" *ngIf="openInfoAbout!=undefined" [dish]="openInfoAbout" (sendToShoppingCart)="setShoppingCart($event)" [amount]="getDishAmount(openInfoAbout.id)"></app-dish-info>
+</div>

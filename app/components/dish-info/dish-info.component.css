@@ -1,0 +1,52 @@
+#box
+{
+    padding: 10px;
+}
+
+#name
+{
+    font-size: 100px;
+    border-bottom: black 2px solid;
+    margin: 10px;
+}
+
+#photos
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    height: 200px;
+}
+
+#photo>img
+{
+   max-height: 200px;
+}
+
+#description
+{
+    margin:10px;
+    font-size: 20px;
+}
+
+#infos
+{
+    margin:10px;
+}
+
+#footer
+{
+    display: flex;
+    margin:10px;
+}
+
+#buttons
+{
+    margin-right: 10px;
+}
+
+#back
+{
+    margin-top: 20px;
+}

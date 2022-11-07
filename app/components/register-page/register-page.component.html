@@ -1,0 +1,25 @@
+<div id="container" class="inCenter">
+    <div id="title"><b>REGISTER: </b></div>
+
+    <form [formGroup]="modelForm" (ngSubmit)="onSubmit(modelForm)">
+        <label>NAME:</label>
+        <input name="name" formControlName="name">
+        <span *ngIf="formErrors.name">{{ formErrors.name }}</span>
+
+        <label>LAST NAME:</label>
+        <input name="lastname" formControlName="lastname">
+        <span *ngIf="formErrors.lastname">{{ formErrors.lastname }}</span>
+
+        <label>EMAIL:</label>
+        <input name="email" formControlName="email">
+        <span *ngIf="formErrors.email">{{ formErrors.email }}</span>
+        
+        <label>PASSWORD:</label>
+        <input type=password name="password" formControlName="password">
+        <span *ngIf="formErrors.password">{{ formErrors.password }}</span>
+
+        <button [disabled]="!modelForm.valid" type="submit">Submit</button>
+    </form>
+    <div> <a routerLink="/login">Already have an account?</a></div>
+</div>
+

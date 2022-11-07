@@ -1,0 +1,22 @@
+<div id="container">
+    <div>
+        <label>Items per page:</label>
+        <select (change)="setItemsPerPage($event)">
+            <option value="4">4</option>
+            <option value="8">8</option>
+            <option value="12" selected="selected">12</option>
+        </select>
+
+    </div>
+    <div>
+        {{currPage}}/{{maxPage}}
+    </div>
+
+    <div>
+        <button [disabled]="buttonDisabled(true)" (click)="firstPage()"> |< </button>
+        <button [disabled]="buttonDisabled(true)" (click)="previousPage()"> < </button>
+        <button [disabled]="buttonDisabled(false)" (click)="nextPage()"> > </button>
+        <button [disabled]="buttonDisabled(false)" (click)="lastPage()"> >| </button>
+    </div>
+
+</div>

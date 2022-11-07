@@ -1,0 +1,40 @@
+<div id="container">
+       <form [formGroup]="modelForm" (ngSubmit)="onSubmit(modelForm)">
+        <label>name:</label>
+        <input name="name" formControlName="name">
+        <span *ngIf="formErrors.name">{{ formErrors.name }}</span>
+       
+        <label>price:</label>
+        <input name="price" formControlName="price">
+        <span *ngIf="formErrors.price">{{ formErrors.price }}</span>
+
+        <label>category:</label>
+        <input name="category" formControlName="category">
+        <span *ngIf="formErrors.category">{{ formErrors.category }}</span>
+
+        <label>region:</label>
+        <input name="region" formControlName="region">
+        <span *ngIf="formErrors.region">{{ formErrors.region }}</span>
+
+        <label>ingredients: (e.g. 'sugar;corn;') (optional)</label>
+        <input name="ingredients" formControlName="ingredients">
+        <span *ngIf="formErrors.ingredients">{{ formErrors.ingredients }}</span>
+
+        <label>maxAmount:</label>
+        <input name="maxAmount" formControlName="maxAmount">
+        <span *ngIf="formErrors.maxAmount">{{ formErrors.maxAmount }}</span>
+
+        <label>description: (optional)</label>
+        <input name="description" formControlName="description">
+        <span *ngIf="formErrors.description">{{ formErrors.description }}</span>
+
+        <label>photosDirectory: (e.g. 'shakeDessert') (optional)</label>
+        <input name="photosDirectory" formControlName="photosDirectory">
+        <span *ngIf="formErrors.photosDirectory">{{ formErrors.photosDirectory }}</span>
+
+       
+        <button [disabled]="!modelForm.valid" type="submit">Submit</button>
+        <button routerLink="/menu">Cancel</button>
+       </form>
+
+</div>

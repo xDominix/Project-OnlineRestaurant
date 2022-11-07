@@ -1,0 +1,28 @@
+
+<div id="container" *ngIf="canRate==true">
+    <div>RATE DISH: </div>
+    <form [formGroup]="modelForm" (ngSubmit)="onSubmit(modelForm)">
+     <label>NICK:</label>
+     <input name="nick" formControlName="nick">
+     <span *ngIf="formErrors.nick">{{ formErrors.nick }}</span>
+    
+     <label>TEXT:</label>
+     <input name="text" formControlName="text">
+     <span *ngIf="formErrors.text">{{ formErrors.text }}</span>
+
+     <label>DATE: (e.g. 02-31-2011)</label>
+     <input name="date" formControlName="date">
+     <span *ngIf="formErrors.date">{{ formErrors.date }}</span>
+    
+     <button [disabled]="!modelForm.valid" type="submit">Submit</button>
+    </form>
+
+</div>
+<div id="container" *ngIf="ratings.length!=0">RATINGS:
+    <div id="rate" *ngFor="let rate of ratings">
+        <div><b>{{rate.nick}}</b></div>
+        <div>{{rate.text}}</div>
+        <div id="date" *ngIf="rate.date!=undefined">{{rate.date}}</div>
+    </div>
+
+</div>

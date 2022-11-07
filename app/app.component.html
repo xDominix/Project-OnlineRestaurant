@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restauracja</title>
+</head>
+<body>
+
+  <div class="bottomBar">
+    <div class="container">
+      <div ><a routerLink="/home">HOME</a></div>
+      <div ><a routerLink="/menu">MENU</a></div>
+      <div *ngIf="currRole!='guest'"><a routerLink="/order-details">ORDER</a></div>
+      <div *ngIf="currRole=='admin'"> <a routerLink="/admin-view">ADMIN VIEW</a></div>
+
+      <div id="r" *ngIf="isLoggedIn">{{currName.toUpperCase()}}</div>
+      <div id="r" *ngIf="isLoggedIn==false"> <a routerLink="/login">LOGIN</a></div>
+      <div *ngIf="isLoggedIn==false"> <a routerLink="/register">REGISTER</a></div>
+      <div *ngIf="isLoggedIn"> <a (click)="logOut()">LOG OUT</a></div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</body>
+</html>

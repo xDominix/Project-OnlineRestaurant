@@ -1,0 +1,34 @@
+<div id="box">
+    <div id="name"><b>{{dish.name.toUpperCase()}}</b></div>
+    
+    <div id="photos">
+    <div id="photo" *ngFor="let item of [].constructor(2); let i = index">
+        <img src="assets/dishPhotos/{{dish.photosDirectory}}/{{i+1}}.jpg" alt="">
+    </div>
+    </div>
+
+    <div id="description"><b>Description: </b>{{dish.description}} </div>
+
+    <div id="infos">
+        <div><b>Category: </b>{{dish.category}}</div>
+        <div ><b>Region: </b>{{dish.region}}</div>
+        <div ><b>Ingredients: </b>{{dish.ingredients}}</div>
+       <div><b>Price: </b>{{dish.price}}$</div>
+        <div><b>Rating: </b>{{dish.rating}}</div>
+    </div>
+
+   
+
+    <div id="footer">
+        <div id="buttons">
+            <button (click)="removeOne()" [disabled]="amount==0" class="unselectable">-</button>
+            <button (click)="addOne()"  [disabled]="amount==this.dish.maxAmount" class="unselectable">+</button>
+        </div>
+        <div [ngStyle]="{'color': amount>dish.maxAmount-3? 'red':'black'}">{{amount}}/{{dish.maxAmount}}</div>
+    </div>
+    <button id="back" (click)="closeInfo()">GO BACK TO MENU</button>
+
+    <app-dish-rate-form [dishId]="dish.id" [ratings]="ratings"></app-dish-rate-form>
+</div>
+
+

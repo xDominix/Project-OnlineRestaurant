@@ -1,0 +1,12 @@
+#container
+{
+    display: flex;
+    justify-content: right;
+    padding: 10px;
+    background-color: rgb(241, 241, 241);
+    
+}
+#container>div
+{
+    margin-right:40px;
+}

@@ -1,0 +1,26 @@
+.colBox
+{
+    width: 300px;
+    display: flex;
+flex-direction: column;
+
+}
+.colBox>div
+{
+    padding: 20px;
+}
+
+.rowBox
+{
+    display: flex;
+}
+
+#ra
+{
+    width: 200px;
+}
+
+#pr
+{
+    width: 100px;
+}

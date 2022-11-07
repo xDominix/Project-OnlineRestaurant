@@ -1,0 +1,33 @@
+<div class="colBox">
+<h1>FILTERS</h1>
+<div><b>Regions:</b>
+  <div *ngFor="let reg of regionsArray">
+    <input  type="checkbox" (change)="changeRegion(reg,$event)">
+    <label>{{reg}}</label>
+    
+    
+  </div>
+</div>
+
+<div><b>Categories:</b>
+  <div *ngFor="let cat of categoriesArray">
+    <input  type="checkbox" (change)="changeCategory(cat,$event)">
+    <label>{{cat}}</label>
+  </div>
+</div>
+
+<div><b>Price:</b> (type text to default) 
+  <div class="rowBox">
+    <input id="pr" onClick="this.select();" value="{{minDishPrice}}$" (change)="changePrice(true,$event)">
+    <input id="pr" onClick="this.select();" value="{{maxDishPrice}}$" (change)="changePrice(false,$event)">
+
+  </div>
+  
+</div>
+<div><b>Minimal rating:</b> (type text to default) 
+  <input id="ra" onClick="this.select();" value="1" (change)="changeRating($event)">
+  
+</div>
+
+
+</div>

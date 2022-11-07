@@ -1,0 +1,15 @@
+<div id="container"  class="inCenter">
+    <div id="title"><b>LOG IN:</b> </div>
+    <form [formGroup]="modelForm" (ngSubmit)="onSubmit(modelForm)">
+     <label>EMAIL:</label>
+     <input name="email" formControlName="email">
+     <span *ngIf="formErrors.email">{{ formErrors.email }}</span>
+    
+     <label>PASSWORD:</label>
+     <input  type=password name="password" formControlName="password">
+     <span *ngIf="formErrors.password">{{ formErrors.password }}</span>
+
+     <button [disabled]="!modelForm.valid" type="submit">Submit</button>
+    </form>
+    <div> <a routerLink="/register">Don't have an account?</a></div>
+</div>

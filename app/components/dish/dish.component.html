@@ -1,0 +1,32 @@
+<div id="item" [ngClass]="{'focus':focus}">
+    <button class="modeButton" id="redColorMode" *ngIf="deleteMode" (click)="removeDish()"><b>-</b></button>
+    <button class="modeButton" id="orangeColorMode" *ngIf="editMode" (click)="editDish()"><b>e</b></button>
+
+    <app-rating id="stars" [rating]="dish.rating"></app-rating>
+    <div id="header">
+        <div>{{dish.price}}$</div>
+        <div id="buttons">
+            <button (click)="removeOne()" [disabled]="amount==0 || editMode || deleteMode" class="unselectable">-</button>
+            <button (click)="addOne()"  [disabled]="amount==this.dish.maxAmount || editMode|| deleteMode" class="unselectable">+</button>
+        </div>
+        <div [ngStyle]="{'color': amount>dish.maxAmount-3? 'red':'black'}">{{amount}}/{{dish.maxAmount}}</div>
+    </div>
+
+    <div id="image" [ngClass]="{'imageHover': (editMode===false && deleteMode===false)}" (click)="openInfo()">
+        <div id="details" ><b>READ MORE</b></div>
+        <img *ngIf="dish.photosDirectory!=''" src="assets/dishPhotos/{{dish.photosDirectory}}/1.jpg" alt="">
+    </div>
+
+    <div id="title" [class]="setColor()">
+        <div class="unselectable">{{dish.category}}</div>
+        <div id="name"><b>{{dish.name.toUpperCase()}}</b></div> 
+        <div class="unselectable">{{dish.region}}</div> 
+    </div>
+    <div id="content"> {{dish.description}} </div>
+
+
+    
+    <div id="footer">{{dish.ingredients}}</div>
+
+    
+</div>

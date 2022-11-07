@@ -1,0 +1,32 @@
+#container
+{
+    width: 300px;
+    padding: 10px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 10px;
+    box-shadow: black 1px 1px 1px;
+
+}
+
+#title
+{
+    border-bottom: black 1px solid;
+    padding: 10px;
+}
+
+form
+{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+form>*
+{
+    margin-top: 10px;
+}
+
+span
+{
+    color: red;
+}
